@@ -65,12 +65,12 @@ if (sessionStorage.getItem('logado')){
       const pNasci = document.createElement('p');
       pNasci.style.gridArea = 'a5';
       pNasci.style.paddingLeft = '1rem';
-      pNasci.innerHTML = `Nascimento: ${atleta.nascimento}`;
+      pNasci.innerHTML = `Data de Nascimento: ${atleta.nascimento}`;
 
       const pJogos = document.createElement('p');
       pJogos.style.gridArea = 'a4';
       pJogos.style.paddingLeft = '1rem';
-      pJogos.innerHTML = `Numero de jogos: ${atleta.n_jogos}`;
+      pJogos.innerHTML = `Partidas Jogadas: ${atleta.n_jogos}`;
 
       const pNatu = document.createElement('p');
       pNatu.style.gridArea = 'a6';
@@ -78,7 +78,6 @@ if (sessionStorage.getItem('logado')){
       pNatu.innerHTML = `Naturalidade: ${atleta.naturalidade}`;
 
       const pExtra = document.createElement('p');
-      pExtra.innerHTML = `id: ${atleta.id}| elenco: ${atleta.elenco}| altura: ${atleta.altura? atleta.altura : 'Não informado'}`;
       pExtra.style.paddingLeft = '1rem';
       pExtra.style.gridArea = 'a7';
 
@@ -104,7 +103,7 @@ if (sessionStorage.getItem('logado')){
 
   const url = new URLSearchParams(window.location.search);
 
-  // Obter o ID do atleta da URL
+  
   const idAtleta = url.get('id');
 
   if (idAtleta) {
@@ -118,7 +117,7 @@ if (sessionStorage.getItem('logado')){
           document.body.appendChild(erro);
           erro.style.color = 'black';
       } else {
-          // Buscar o atleta pelo ID
+          
           fetchAtletaPorId(idAtleta).then(atleta => {
               constroiCard(atleta);
           });
