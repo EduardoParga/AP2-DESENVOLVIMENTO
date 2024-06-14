@@ -2,34 +2,30 @@ if (sessionStorage.getItem('logado')) {
     let listaJogadores = []; // Inicializa a lista de jogadores vazia
 
     const style = document.createElement('style');
-    style.innerHTML = `
-        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap');
-        body {
-            font-family: 'Lilita One', cursive;
-        }
-    `;
     document.head.appendChild(style);
 
     const fetchJson = async (url) => {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Erro ao carregar os dados');
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Erro ao carregar os dados:', error);
+            return [];
+        }
     };
 
     const loadPlayerData = async (url) => {
-        container.innerHTML = `
-            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: fit-content; margin: 0 auto; margin-right: -100px; font-family: 'Roboto', sans-serif">
-                <img src="assets/imagens/loading.gif"/>
-                <h3>Carregando dados, por favor aguarde...</h3>
-            </div>
-        `;
-        listaJogadores = await fetchJson(url);
-        container.innerHTML = '';
-
-        listaJogadores.forEach((jogador) => {
-            buildCard(jogador);
-        });
+        try {
+            listaJogadores = await fetchJson(url);
+            console.log('Dados dos jogadores carregados:', listaJogadores);
+            renderPlayerList(); // Renderiza a lista inicialmente
+        } catch (error) {
+            console.error('Erro ao carregar os dados dos jogadores:', error);
+        }
     };
 
     const container = document.createElement('div');
@@ -76,24 +72,21 @@ if (sessionStorage.getItem('logado')) {
         height: '5rem'
     });
 
-    const title = createTitle('Elenco de Atletas');
+    const title = createTitle('Botafogo de Futebol e Regatas');
 
-    const btnFeminino = createButton('Elenco Feminino', () => {
-        container.innerHTML = '';
+    const btnFeminino = createButton('Feminino', () => {
         loadPlayerData('https://botafogo-atletas.mange.li/2024-1/feminino');
     });
 
-    const btnMasculino = createButton('Elenco Masculino', () => {
-        container.innerHTML = '';
+    const btnMasculino = createButton('Masculino', () => {
         loadPlayerData('https://botafogo-atletas.mange.li/2024-1/masculino');
     });
 
     const btnAll = createButton('Elenco Completo', () => {
-        container.innerHTML = '';
         loadPlayerData('https://botafogo-atletas.mange.li/2024-1/all');
     });
 
-    const btnSair = createButton('Sair', () => {
+    const btnSair = createButton('Logout', () => {
         sessionStorage.removeItem('logado');
         window.location.href = 'index.html';
     });
@@ -110,16 +103,26 @@ if (sessionStorage.getItem('logado')) {
     divPesquisa.appendChild(inputPesquisa);
 
     inputPesquisa.onkeyup = (event) => {
-        const valor = event.target.value.trim().toLowerCase(); // Remove espaços e converte para minúsculas
-        const resultado = listaJogadores.filter((elemento) =>
-            elemento.nome.toLowerCase().includes(valor) || elemento.nome_completo.toLowerCase().includes(valor)
-        );
+        const valor = event.target.value.trim().toLowerCase();
+        console.log('Valor de pesquisa:', valor);
+        const resultado = listaJogadores.filter((elemento) => {
+            // Verifica se as propriedades existem antes de acessá-las
+            return (elemento.nome && elemento.nome.toLowerCase().includes(valor)) ||
+                   (elemento.nome_completo && elemento.nome_completo.toLowerCase().includes(valor));
+        });
+        console.log('Resultado da filtragem:', resultado);
         renderFilteredResults(resultado);
     };
 
-    const renderFilteredResults = (resultado) => {
-        container.innerHTML = ''; // Limpa o conteúdo atual do container
+    const renderPlayerList = () => {
+        container.innerHTML = '';
+        listaJogadores.forEach((jogador) => {
+            buildCard(jogador);
+        });
+    };
 
+    const renderFilteredResults = (resultado) => {
+        container.innerHTML = '';
         resultado.forEach((jogador) => {
             buildCard(jogador);
         });
