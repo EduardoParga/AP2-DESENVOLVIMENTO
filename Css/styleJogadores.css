@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+
+body, html {
+    padding: 0;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Poppins', sans-serif; 
+}
+
+
+
+button {
+    color: #fff;
+    padding: 14px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: #0d0d0d;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #0d0d0d;
+    border: 2px solid #0d0d0d;
+}
+
+#btn_sair {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background-color: #0d0d0d;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 5px;
+    border: 2px solid white;
+}
+
+#btn_more {
+    background-color: #2e2e2e;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid #fff;
+    z-index: 999;
+}
+
+#inputPesquisa {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    height: 40px;
+    border: 2px solid #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    background-color: #0d0d0d;
+    color: #fff;
+    outline: none;
+}
+
+#select {
+    color: #fff;
+    padding: 14px 20px;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: #0d0d0d;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+#select option {
+    background-color: #0d0d0d;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+@media screen and (max-width: 767px) {
+    #myContainer {
+        grid-template-columns: auto;
+    }
+    #btns {
+        display: none;
+    }
+    #select {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #myContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+    #btns {
+        display: flex;
+    }
+    #select {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #myContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
