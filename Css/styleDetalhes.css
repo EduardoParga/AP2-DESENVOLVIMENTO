@@ -1,0 +1,120 @@
+/* Importação das fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+/* Estilos gerais para body e html */
+body, html {
+    padding: 0;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Poppins', sans-serif; /* Definição da fonte principal */
+}
+
+/* Estilos específicos para o elemento #card */
+#card {
+    background: url("../assets/imagens/waves-bg-detalhes.jpg");
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: .5rem;
+    color: white;
+    font-size: 1.2rem;
+    display: grid;
+    justify-content: space-evenly;
+    width: 55rem;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    grid-template-columns: 25rem 1fr;
+    grid-template-areas: 
+        "a1 a2"
+        "a1 a3"
+        "a1 a4"
+        "a1 a5"
+        "a1 a6"
+        "a1 a7"
+        "a1 a8";
+}
+
+/* Media queries para telas menores */
+@media (max-width: 767px) {
+    #card {
+        width: fit-content;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "a1"
+            "a2"
+            "a3"
+            "a4"
+            "a5"
+            "a6"
+            "a7"
+            "a8";
+    }
+}
+
+/* Estilos para botões */
+button, #btn_sair, #btn_more {
+    color: #fff;
+    padding: 14px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: #0d0d0d;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+button:hover, #btn_sair:hover, #btn_more:hover {
+    background-color: #fff;
+    color: #0d0d0d;
+    border: 2px solid #0d0d0d;
+}
+
+/* Estilo para input de pesquisa */
+#inputPesquisa {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    height: 40px;
+    border: 2px solid #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    background-color: #0d0d0d;
+    color: #fff;
+    outline: none;
+}
+
+/* Estilos para select */
+#select {
+    color: #fff;
+    padding: 14px 20px;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: #0d0d0d;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+#select option {
+    background-color: #0d0d0d;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+/* Media queries para diferentes tamanhos de tela */
+@media screen and (max-width: 767px) {
+    /* Estilos específicos para telas menores que 768px */
+}
+
+@media screen and (min-width: 768px) {
+    /* Estilos específicos para telas maiores ou iguais a 768px */
+}
+
+@media screen and (min-width: 1024px) {
+    /* Estilos específicos para telas maiores ou iguais a 1024px */
+}
