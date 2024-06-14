@@ -1,5 +1,5 @@
 if (sessionStorage.getItem('logado')) {
-    let listaJogadores = []; // Inicializa a lista de jogadores vazia
+    let listaJogadores = []; 
 
     const style = document.createElement('style');
     document.head.appendChild(style);
@@ -22,7 +22,7 @@ if (sessionStorage.getItem('logado')) {
         try {
             listaJogadores = await fetchJson(url);
             console.log('Dados dos jogadores carregados:', listaJogadores);
-            renderPlayerList(); // Renderiza a lista inicialmente
+            renderPlayerList(); 
         } catch (error) {
             console.error('Erro ao carregar os dados dos jogadores:', error);
         }
@@ -106,7 +106,7 @@ if (sessionStorage.getItem('logado')) {
         const valor = event.target.value.trim().toLowerCase();
         console.log('Valor de pesquisa:', valor);
         const resultado = listaJogadores.filter((elemento) => {
-            // Verifica se as propriedades existem antes de acessá-las
+     
             return (elemento.nome && elemento.nome.toLowerCase().includes(valor)) ||
                    (elemento.nome_completo && elemento.nome_completo.toLowerCase().includes(valor));
         });
@@ -214,7 +214,6 @@ if (sessionStorage.getItem('logado')) {
         container.appendChild(divCard);
     };
 
-    // Carrega inicialmente todos os jogadores
     loadPlayerData('https://botafogo-atletas.mange.li/2024-1/all');
 } else {
     const accessDenied = document.createElement('h1');
