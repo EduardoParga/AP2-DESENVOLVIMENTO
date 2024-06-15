@@ -64,6 +64,8 @@ button:hover {
 #btns {
     display: flex;
     gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .container {
@@ -115,10 +117,9 @@ button:hover {
     border-radius: 5px;
 }
 
-
 @media screen and (max-width: 767px) {
     .container {
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
     }
     #btns {
         display: none;
@@ -130,9 +131,9 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .container {
-        grid-template-columns: auto auto;
+        grid-template-columns: repeat(2, 1fr);
     }
     #btns {
         display: flex;
@@ -146,6 +147,14 @@ button:hover {
 
 @media screen and (min-width: 1024px) {
     .container {
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    #btns {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    #select {
+        display: none;
     }
 }
