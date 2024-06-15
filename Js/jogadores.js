@@ -2,7 +2,7 @@ const buttonsData = [
     { text: 'Feminino', url: 'https://botafogo-atletas.mange.li/2024-1/feminino' },
     { text: 'Masculino', url: 'https://botafogo-atletas.mange.li/2024-1/masculino' },
     { text: 'Elenco Completo', url: 'https://botafogo-atletas.mange.li/2024-1/all' },
-    { text: 'Logout', action: () => {
+    { text: 'Sair', action: () => {
         sessionStorage.removeItem('logado');
         window.location.href = 'index.html';
     }}
