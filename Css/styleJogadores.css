@@ -115,20 +115,32 @@ button:hover {
     border-radius: 5px;
 }
 
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: repeat(1, 1fr);
+@media screen and (max-width: 767px){
+    #myContainer {
+        grid-template-columns: auto;
+    }
+    #btns{
+        display: none;
+    }
+    #select{
+        display: flex;
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        grid-template-columns: repeat(2, 1fr);
+@media screen and (min-width: 768px){
+    #myContainer {
+        grid-template-columns: auto auto;
+    }
+    #btns{
+        display: flex;
+    }
+    #select{
+        display: none;
     }
 }
 
-@media (min-width: 1025px) {
-    .container {
-        grid-template-columns: repeat(4, 1fr);
+@media screen and (min-width: 1024px){
+    #myContainer {
+        grid-template-columns: auto auto auto auto;
     }
 }
