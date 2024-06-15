@@ -8,44 +8,77 @@ body, html {
     font-family: 'Poppins', sans-serif;
 }
 
-#card {
-    border: 5px solid rgb(255, 255, 255);
-    border-radius: 5px;
-    color: white;
-    font-size: 1.2rem;
+#detalhesAtleta {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 80%;
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-    background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.item {
+#card {
+    max-width: 600px;
     background-color: #0d0d0d;
-    color: #fff;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: calc(25% - 20px);
-    box-sizing: border-box;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s; 
 }
 
-.item:hover {
-    background-color: #ffffff;
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+#card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #ffd700;
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: center 10%;
 }
 
-@media (max-width: 767px) {
-    .item {
-        width: calc(50% - 20px);
-        margin: 10px;
+#card p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+#card p.nome {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffd700;
+}
+
+#card p.posicao {
+    font-style: italic;
+}
+
+#card p.descricao {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffd700;
+    color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+    #card {
+        padding: 20px;
     }
 }

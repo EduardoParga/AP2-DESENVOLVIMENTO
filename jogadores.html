@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <link rel="icon" type="image/png" href="Images/escudo.png" sizes="16x16">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Botafogo</title>
-  <link rel="stylesheet" href="Css/styleJogadores.css">
-
-  <script type='module' src="Js/jogadores.js" defer></script>
+    <link rel="icon" type="image/png" href="Images/escudo.png" sizes="16x16">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botafogo de Futebol e Regatas</title>
+    <link rel="stylesheet" href="Css/styleJogadores.css">
 </head>
 <body>
+    <header id="header">
+        <img src="Images/escudo.png" alt="Escudo" id="escudo">
+        <h1>Botafogo de Futebol e Regatas</h1>
+        <nav id="btns"></nav>
+    </header>
 
+    <input id="inputPesquisa" type="text" placeholder="Pesquise por nome">
+
+    <div id="myContainer" class="container"></div>
+
+    <script src="Js/jogadores.js"></script>
 </body>
 </html>
