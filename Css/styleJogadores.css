@@ -131,35 +131,30 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .container {
-      width: 80%;
+        grid-template-columns: repeat(2, 1fr);
     }
-  
-    .menu-btn {
-      font-size: 16px;
-      padding: 10px 20px;
-      margin: 0 5px;
+    #btns {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
     }
-  
-    #container_card {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+    #select {
+        display: none;
     }
-  }
-  
-  @media screen and (min-width: 1025px) {
+}
+
+@media screen and (min-width: 1024px) {
     .container {
-      width: 1200px;
+        grid-template-columns: repeat(4, 1fr);
     }
-  
-    .menu-btn {
-      font-size: 18px;
-      padding: 12px 24px;
+    #btns {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
     }
-  
-    #container_card {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    #select {
+        display: none;
     }
-  }
+}
