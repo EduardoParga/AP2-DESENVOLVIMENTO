@@ -72,6 +72,8 @@ button:hover {
     gap: 20px;
     padding: 20px;
     justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
@@ -111,4 +113,22 @@ button:hover {
     margin: 0;
     padding: 8px;
     border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
